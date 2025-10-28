@@ -33,10 +33,10 @@ public class TaperClavier : MonoBehaviour
             {
                 if(Enum.TryParse(lastInput.ToUpper(),out KeyCode key))
                 {
-                    Debug.Log("Dernière touche : " + key);
+                    //Debug.Log("Dernière touche : " + key);
                     if (Input.GetKeyDown(key))
                     {
-                        Debug.Log(key + " a déjà été pressé !");
+                        //Debug.Log(key + " a déjà été pressé !");
                     }
                     else
                     {
@@ -70,6 +70,9 @@ public class TaperClavier : MonoBehaviour
     public void Start_TaperClavier()
     {
         started = true;
+        oneTime = false;
+        videoPlayer.Stop();
+        videoPlayer.Pause();
     }
 
     
@@ -79,7 +82,7 @@ public class TaperClavier : MonoBehaviour
         oneTime = true;
         lastInput = Input.inputString;
         inputTouched++;
-        Debug.Log("Taper Clavier : " + Input.inputString);
+        //Debug.Log("Taper Clavier : " + Input.inputString);
         videoPlayer.Play();
         yield return new WaitForSeconds(seconds);
         videoPlayer.Pause();
@@ -87,7 +90,7 @@ public class TaperClavier : MonoBehaviour
         Debug.Log("End Wait");
     }
 
-    public static bool End_TaperClavier()
+    public bool End_TaperClavier()
     {
         if (win == true)
         {

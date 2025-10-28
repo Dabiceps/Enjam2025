@@ -5,21 +5,25 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //Decla variables serialisées
-    [SerializeField] private GameObject FZ; // La zone de drop
-    [SerializeField] private GameObject TC; // GameObject taper clavier
+    [Header("Préfabs des mini-jeux")]
     [SerializeField] private GameObject DragDrop; // Prefab dragdrop
     [SerializeField] private GameObject TaperClavier; // Prefab TaperClavier
     [SerializeField] private GameObject PointClick; // Prefab pointclick
+    [SerializeField] private GameObject TitleScreen; // Prefab TitleScreen
 
+    [Header("Scripts")]
+    [SerializeField] private FileDropZone fz; // La zone de drop
+    [SerializeField] private TaperClavier tc; // Le taper clavier
+    [SerializeField] private PopupDiscord popupDiscord; // Popup discord
 
     // Variables de coroutine
+    [Header("Variables de jeu")]
     public int MiniGameTime;
     private int FixTime;
     private int MiniGames = 0;
 
     // Décla des classes
-    FileDropZone fz;
-    TaperClavier tc;
+
 
     // Autres
     bool win;
@@ -28,8 +32,10 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        fz = FZ.GetComponent<FileDropZone>();
-        tc = TC.GetComponent<TaperClavier>();
+        DragDrop.SetActive(false);
+        TaperClavier.SetActive(false);
+        PointClick.SetActive(false);
+        TitleScreen.SetActive(true);
         GameStart();
     }
 
@@ -38,7 +44,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Début du jeu");
 
         // Apparition bouton discord
-
+        popupDiscord.createPopUp();
 
 
         // Quand on le clique, on bouge le build, on attend 2sec, on affiche le premier pop-up et on attend x sec
@@ -69,6 +75,16 @@ public class GameManager : MonoBehaviour
         if (MiniGames == 1)
         {
             // truc de fin de mini jeu mashing clavier
+            win = tc.End_TaperClavier();
+            if (win)
+            {
+                Debug.Log("Vous avez gagné le taperclavier !");
+            }
+            else
+            {
+                Debug.Log("Vous avez perdu le taperclavier !");
+            }
+
             fz.StartDragDropGame();
             SetPrefab(DragDrop, TaperClavier, PointClick);
             StartCoroutine(CountdownCoroutine());
@@ -77,6 +93,15 @@ public class GameManager : MonoBehaviour
         if (MiniGames == 2)
         {
             //truc de fin de mini jeu drag drop
+            win = fz.EndDragDropGame();
+            if (win) 
+            {                 
+                Debug.Log("Vous avez gagné le dragdrop !");
+            }
+            else 
+            {
+                Debug.Log("Vous avez perdu le dragdrop !");
+            }
             //Méthode start mini jeu point n click
             Debug.Log("Fin DnD");
             MiniGames = 0;
@@ -96,6 +121,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Start point n click minigame
+        TitleScreen.SetActive(false);
         SetPrefab(PointClick, TaperClavier, DragDrop);
         StartCoroutine(CountdownCoroutine());
 

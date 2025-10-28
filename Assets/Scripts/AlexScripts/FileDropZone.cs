@@ -16,7 +16,7 @@ public class FileDropZone : MonoBehaviour, IDropHandler
 
     private void Awake()
     {
-        // Stocker les positions initiales des items
+        // Stocker les positions initiales des éléments déplaçables
         foreach (var item in DraggableItems)
         {
             RectTransform rect = item.GetComponent<RectTransform>();
@@ -35,7 +35,7 @@ public class FileDropZone : MonoBehaviour, IDropHandler
 
                 Debug.Log((isGood ? "Fichier accepté: " : "Fichier refusé: ") + droppedFile.name + " de type " + droppedFile.tag);
 
-                droppedFile.GetComponent<DragDrop>().enabled = false;
+                //droppedFile.GetComponent<DragDrop>().enabled = false;
                 droppedFile.GetComponent<CanvasGroup>().alpha = 1f;
 
                 win = isGood;
