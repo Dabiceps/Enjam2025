@@ -12,6 +12,9 @@ public class PointAndClickController : MonoBehaviour
     [SerializeField] private GameObject line1;
     [SerializeField] private GameObject line2;
     [SerializeField] private GameObject line3;
+    public bool pointAndClickVictory;
+
+
 
     private void Awake()
     {
@@ -22,6 +25,7 @@ public class PointAndClickController : MonoBehaviour
         line1.SetActive(false);
         line2.SetActive(false);
         line3.SetActive(false);
+        pointAndClickVictory = false;
     }
     private void Init()
     {
@@ -33,7 +37,7 @@ public class PointAndClickController : MonoBehaviour
         line1.SetActive(false);
         line2.SetActive(false);
         line3.SetActive(false);
-
+        pointAndClickVictory = false;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,16 +68,11 @@ public class PointAndClickController : MonoBehaviour
             bouton4.enabled = false;
             line3.SetActive(true);
             bouton4.gameObject.SetActive(false);
+            line1.SetActive(false);
+            line2.SetActive(false);
+            line3.SetActive(false);
+            pointAndClickVictory = true;
         });
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    public void ActivateButton(int buttonToActivate)
-    {
-        bouton2.enabled = true;
     }
 }
