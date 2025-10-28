@@ -347,6 +347,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCanva
       objectReference: {fileID: 0}
+    - target: {fileID: 2842446520251591247, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954059953654313799, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.21411133
+      objectReference: {fileID: 0}
     - target: {fileID: 5728094578730964777, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -431,8 +439,12 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 7324330241245838084, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.a
+    - target: {fileID: 7471940999735339646, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658691084619512527, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
