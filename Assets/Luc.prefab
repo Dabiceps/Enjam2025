@@ -313,4 +313,4 @@ MonoBehaviour:
   oneTime: 0
   lastInput: 
   inputTouched: 0
-  maxForWinning: 0
+  maxForWinning: 50

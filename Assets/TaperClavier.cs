@@ -14,11 +14,14 @@ public class TaperClavier : MonoBehaviour
     [SerializeField] private string lastInput = "";
     [SerializeField] private int inputTouched = 0;
     [SerializeField] private int maxForWinning = 50;
+    [SerializeField] private GameManager gameManager;
+    private static bool win = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         videoPlayer.Pause();
         Start_TaperClavier();
+        gameManager = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -46,10 +49,21 @@ public class TaperClavier : MonoBehaviour
                 }
             }
 
-            if (inputTouched == maxForWinning)
+            if (inputTouched >= maxForWinning)
             {
                 Debug.Log("Bravo !!!");
+                win = true;
+                started = false;
+                End_TaperClavier();
             }
+
+            if (gameManager.MiniGameTime <= 0)
+            {
+                win = false;
+                started = false;
+                End_TaperClavier();
+            }
+            
         }
     }
 
@@ -71,5 +85,17 @@ public class TaperClavier : MonoBehaviour
         videoPlayer.Pause();
         oneTime = false;
         Debug.Log("End Wait");
+    }
+
+    public static bool End_TaperClavier()
+    {
+        if (win == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
