@@ -64,6 +64,7 @@ public class FileDropZone : MonoBehaviour, IDropHandler
         {
             GameObject item = DraggableItems[i];
             item.SetActive(true);
+            item.GetComponent<DragDrop>().enabled = true;
 
             // Réinitialiser la position à celle d'origine
             RectTransform rect = item.GetComponent<RectTransform>();
