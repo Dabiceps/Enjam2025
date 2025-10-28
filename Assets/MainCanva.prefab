@@ -116,10 +116,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thomas
       objectReference: {fileID: 0}
-    - target: {fileID: 5103451499379764109, guid: 252044f88b3ea2e4fbfcae18678fdf8b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8374600914259951638, guid: 252044f88b3ea2e4fbfcae18678fdf8b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

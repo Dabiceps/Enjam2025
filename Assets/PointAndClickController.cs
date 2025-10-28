@@ -8,22 +8,36 @@ public class PointAndClickController : MonoBehaviour
     [SerializeField] private Button bouton1;
     [SerializeField] private Button bouton2;
     [SerializeField] private Button bouton3;
+    [SerializeField] private Button bouton4;
+    [SerializeField] private GameObject line1;
+    [SerializeField] private GameObject line2;
+    [SerializeField] private GameObject line3;
+    public bool pointAndClickVictory;
+
+
 
     private void Awake()
     {
         bouton1.enabled = true;
         bouton2.enabled = false;
         bouton3.enabled = false;
+        bouton4.enabled = false;
+        line1.SetActive(false);
+        line2.SetActive(false);
+        line3.SetActive(false);
+        pointAndClickVictory = false;
     }
     private void Init()
     {
         bouton1.enabled = true;
         bouton2.enabled = false;
         bouton3.enabled = false;
+        bouton4.enabled = false;
         bouton1.gameObject.SetActive(true);
-        bouton1.gameObject.SetActive(true);
-        bouton1.gameObject.SetActive(true);
-
+        line1.SetActive(false);
+        line2.SetActive(false);
+        line3.SetActive(false);
+        pointAndClickVictory = false;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,22 +53,26 @@ public class PointAndClickController : MonoBehaviour
         {
             bouton3.enabled = true;
             bouton2.enabled = false;
+            line1.SetActive(true);
             bouton2.gameObject.SetActive(false);
         });
         bouton3.onClick.AddListener(() =>
         {
+            bouton4.enabled = true;
             bouton3.enabled = false;
+            line2.SetActive(true);
             bouton3.gameObject.SetActive(false);
         });
-    }
+        bouton4.onClick.AddListener(() =>
+        {
+            bouton4.enabled = false;
+            line3.SetActive(true);
+            bouton4.gameObject.SetActive(false);
+            line1.SetActive(false);
+            line2.SetActive(false);
+            line3.SetActive(false);
+            pointAndClickVictory = true;
+        });
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    public void ActivateButton(int buttonToActivate)
-    {
-        bouton2.enabled = true;
     }
 }
