@@ -1,0 +1,75 @@
+using System;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.Video;
+
+public class TaperClavier : MonoBehaviour
+{
+    [SerializeField] private bool started = false;
+    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private float seconds;
+    [SerializeField] private bool oneTime = false;
+    [SerializeField] private string lastInput = "";
+    [SerializeField] private int inputTouched = 0;
+    [SerializeField] private int maxForWinning = 50;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        videoPlayer.Pause();
+        Start_TaperClavier();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (started == true)
+        {
+            if (Input.anyKeyDown && oneTime == false)
+            {
+                if(Enum.TryParse(lastInput.ToUpper(),out KeyCode key))
+                {
+                    Debug.Log("Dernière touche : " + key);
+                    if (Input.GetKeyDown(key))
+                    {
+                        Debug.Log(key + " a déjà été pressé !");
+                    }
+                    else
+                    {
+                        StartCoroutine(WaitVideo());
+                    }
+                }
+                else
+                {
+                    StartCoroutine(WaitVideo());
+                }
+            }
+
+            if (inputTouched == maxForWinning)
+            {
+                Debug.Log("Bravo !!!");
+            }
+        }
+    }
+
+    public void Start_TaperClavier()
+    {
+        started = true;
+    }
+
+    
+    
+    IEnumerator WaitVideo()
+    {
+        oneTime = true;
+        lastInput = Input.inputString;
+        inputTouched++;
+        Debug.Log("Taper Clavier : " + Input.inputString);
+        videoPlayer.Play();
+        yield return new WaitForSeconds(seconds);
+        videoPlayer.Pause();
+        oneTime = false;
+        Debug.Log("End Wait");
+    }
+}

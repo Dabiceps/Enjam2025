@@ -328,9 +328,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Luc
       objectReference: {fileID: 0}
-    - target: {fileID: 1743504594406736633, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 5130399605083326026, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 628.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130399605083326026, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 202.192
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130399605083326026, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 314.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130399605083326026, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 101.1
       objectReference: {fileID: 0}
     - target: {fileID: 5646193046850111689, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
       propertyPath: m_Pivot.x
