@@ -1,31 +1,83 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
-using System.Linq;
+using UnityEngine.UI;
 
 public class FileDropZone : MonoBehaviour, IDropHandler
 {
-    public List<string> acceptedTags; // Tags acceptés
+    [SerializeField] private List<GameObject> DraggableItems;
+    [SerializeField] private List<RectTransform> ItemsPosition;
+
+    private List<Vector2> initialPositions = new List<Vector2>();
+
+    private bool win = false;
+    private bool IsDropZoneActive = false;
+    public int difficultyLevel = 0;
+
+    private void Awake()
+    {
+        // Stocker les positions initiales des items
+        foreach (var item in DraggableItems)
+        {
+            RectTransform rect = item.GetComponent<RectTransform>();
+            initialPositions.Add(rect.anchoredPosition);
+        }
+    }
 
     public void OnDrop(PointerEventData eventData)
     {
-        GameObject droppedFile = eventData.pointerDrag;
-        if (droppedFile != null)
+        if (IsDropZoneActive)
         {
-            for (int i = 0; i < acceptedTags.Count; i++)
+            GameObject droppedFile = eventData.pointerDrag;
+            if (droppedFile != null)
             {
-                acceptedTags[i] = acceptedTags[i].ToLower().Trim();
-                if (droppedFile.CompareTag(acceptedTags[i]))
-                {
-                    Debug.Log("Fichier accepte: " + droppedFile.name + " de type " + acceptedTags[i]);
-                    Destroy(droppedFile);
-                }
-                else
-                {
-                    Debug.Log("Fichier refuse: " + droppedFile.name + " de type " + acceptedTags[i]);
-                }
-            }
+                bool isGood = droppedFile.CompareTag("gooditem");
 
+                Debug.Log((isGood ? "Fichier accepté: " : "Fichier refusé: ") + droppedFile.name + " de type " + droppedFile.tag);
+
+                droppedFile.GetComponent<DragDrop>().enabled = false;
+                droppedFile.GetComponent<CanvasGroup>().alpha = 1f;
+
+                win = isGood;
+                IsDropZoneActive = false;
+            }
         }
+    }
+
+    public bool EndDragDropGame()
+    {
+        this.gameObject.SetActive(false);
+        foreach (var item in DraggableItems)
+        {
+            item.SetActive(false);
+        }
+        return win;
+    }
+
+    public void StartDragDropGame()
+    {
+        this.gameObject.SetActive(true);
+        IsDropZoneActive = true;
+        win = false;
+
+        for (int i = 0; i < DraggableItems.Count; i++)
+        {
+            GameObject item = DraggableItems[i];
+            item.SetActive(true);
+
+            // Réinitialiser la position à celle d'origine
+            RectTransform rect = item.GetComponent<RectTransform>();
+            rect.anchoredPosition = initialPositions[i];
+
+            // Réactiver le drag et l'affichage
+            item.GetComponent<DragDrop>().enabled = true;
+            item.GetComponent<CanvasGroup>().alpha = 1f;
+
+            // Définir le tag selon la difficulté
+            item.tag = (i == difficultyLevel) ? "gooditem" : "baditem";
+            Debug.Log("Item " + item.name + " set as " + item.tag);
+        }
+
+        difficultyLevel++;
     }
 }

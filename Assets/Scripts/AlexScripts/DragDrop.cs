@@ -11,6 +11,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private Transform originalParent; // Dossier d'origine
     private Vector3 originalPosition; // Position d'origine
 
+
+
     private void Awake()
     {
         // Trouver automatiquement le Canvas si ce n'est pas assign�
@@ -78,6 +80,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnPointerDown(PointerEventData eventData)
     {
 
+    }
+
+
+    public void StartDragDrop ()
+    {
+        
     }
 
 }
