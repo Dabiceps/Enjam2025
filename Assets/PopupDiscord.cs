@@ -5,7 +5,6 @@ public class PopupDiscord : MonoBehaviour
 {
     [SerializeField] private GameObject popup;
     [SerializeField] private TextMeshProUGUI textMeshPro;
-    [SerializeField] private string text;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +17,7 @@ public class PopupDiscord : MonoBehaviour
         
     }
 
-    public void createPopUp()
+    public void createPopUp(string text)
     {
         popup.SetActive(true);
         textMeshPro.text = text;

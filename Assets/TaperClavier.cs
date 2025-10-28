@@ -13,7 +13,7 @@ public class TaperClavier : MonoBehaviour
     [SerializeField] private bool oneTime = false;
     [SerializeField] private string lastInput = "";
     [SerializeField] private int inputTouched = 0;
-    [SerializeField] private int maxForWinning = 50;
+    [SerializeField] private int maxForWinning = 15;
     [SerializeField] private GameManager gameManager;
     private static bool win = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
