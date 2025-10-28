@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     // Variables de coroutine
     [Header("Variables de jeu")]
     public int MiniGameTime;
-    private int FixTime;
+    public int FixTime;
     private int MiniGames = 0;
 
     // D�cla des classes
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     // Autres
     bool win;
-
+    public int popupNumber = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         TitleScreen.SetActive(true);
         
         // Apparition bouton discord
-        popupDiscord.createPopUp(0, true);
+        popupDiscord.createPopUp(popupNumber, true);
     }
 
     public void GameStart()
@@ -65,10 +65,14 @@ public class GameManager : MonoBehaviour
         if (MiniGames == 0)
         {
             // truc de fin mini jeu point n click
-            tc.Start_TaperClavier();
             SetPrefab(TaperClavier, DragDrop, PointClick);
+            popupDiscord.createPopUp(popupNumber, false);
+            yield return new WaitForSeconds(4f);
+            popupDiscord.createPopUp(popupNumber, false);
+            popupDiscord.destroyPopUp();
+            yield return new WaitForSeconds(2f);
+            tc.Start_TaperClavier();
             StartCoroutine(CountdownCoroutine());
-            Debug.Log("fin PnC");
         }
         if (MiniGames == 1)
         {
@@ -83,10 +87,15 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Vous avez perdu le taperclavier !");
             }
 
-            fz.StartDragDropGame();
+            
             SetPrefab(DragDrop, TaperClavier, PointClick);
+            popupDiscord.createPopUp(popupNumber, false);
+            yield return new WaitForSeconds(4f);
+            popupDiscord.createPopUp(popupNumber, false);
+            popupDiscord.destroyPopUp();
+            yield return new WaitForSeconds(2f);
+            fz.StartDragDropGame();
             StartCoroutine(CountdownCoroutine());
-            Debug.Log("fin TC");
         }
         if (MiniGames == 2)
         {
@@ -101,7 +110,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Vous avez perdu le dragdrop !");
             }
             //M�thode start mini jeu point n click
-            Debug.Log("Fin DnD");
             MiniGames = 0;
             SetPrefab(PointClick, TaperClavier, DragDrop);
             StartCoroutine(CountdownCoroutine());
@@ -121,6 +129,11 @@ public class GameManager : MonoBehaviour
         // Start point n click minigame
         TitleScreen.SetActive(false);
         SetPrefab(PointClick, TaperClavier, DragDrop);
+        popupDiscord.createPopUp(popupNumber, false);
+        yield return new WaitForSeconds(4f);
+        popupDiscord.createPopUp(popupNumber, false);
+        popupDiscord.destroyPopUp();
+        yield return new WaitForSeconds(2f);
         StartCoroutine(CountdownCoroutine());
 
     }

@@ -53,14 +53,12 @@ public class TaperClavier : MonoBehaviour
             {
                 Debug.Log("Bravo !!!");
                 win = true;
-                started = false;
                 End_TaperClavier();
             }
 
             if (gameManager.MiniGameTime <= 0)
             {
                 win = false;
-                started = false;
                 End_TaperClavier();
             }
             
@@ -70,7 +68,6 @@ public class TaperClavier : MonoBehaviour
     public void Start_TaperClavier()
     {
         started = true;
-        oneTime = false;
         videoPlayer.Stop();
         videoPlayer.Pause();
     }
@@ -92,6 +89,8 @@ public class TaperClavier : MonoBehaviour
 
     public bool End_TaperClavier()
     {
+        started = false;
+        oneTime = false;
         if (win == true)
         {
             return true;

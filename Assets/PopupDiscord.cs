@@ -36,6 +36,7 @@ public class PopupDiscord : MonoBehaviour
         }
         popup.SetActive(true);
         textMeshPro.text = text[nbrText];
+        gameManager.popupNumber++;
     }
 
     public void closePopup()

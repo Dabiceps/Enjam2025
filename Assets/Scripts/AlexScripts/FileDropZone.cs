@@ -35,7 +35,7 @@ public class FileDropZone : MonoBehaviour, IDropHandler
 
                 Debug.Log((isGood ? "Fichier accepté: " : "Fichier refusé: ") + droppedFile.name + " de type " + droppedFile.tag);
 
-                //droppedFile.GetComponent<DragDrop>().enabled = false;
+                droppedFile.GetComponent<DragDrop>().enabled = false;
                 droppedFile.GetComponent<CanvasGroup>().alpha = 1f;
 
                 win = isGood;
