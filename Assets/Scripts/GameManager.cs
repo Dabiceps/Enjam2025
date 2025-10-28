@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //Decla variables serialisées
-    [Header("Préfabs des mini-jeux")]
+    //Decla variables serialisï¿½es
+    [Header("Prï¿½fabs des mini-jeux")]
     [SerializeField] private GameObject DragDrop; // Prefab dragdrop
     [SerializeField] private GameObject TaperClavier; // Prefab TaperClavier
     [SerializeField] private GameObject PointClick; // Prefab pointclick
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private int FixTime;
     private int MiniGames = 0;
 
-    // Décla des classes
+    // Dï¿½cla des classes
 
 
     // Autres
@@ -36,16 +36,14 @@ public class GameManager : MonoBehaviour
         TaperClavier.SetActive(false);
         PointClick.SetActive(false);
         TitleScreen.SetActive(true);
-        GameStart();
+        
+        // Apparition bouton discord
+        popupDiscord.createPopUp(0, true);
     }
 
     public void GameStart()
     {
-        Debug.Log("Début du jeu");
-
-        // Apparition bouton discord
-        popupDiscord.createPopUp();
-
+        Debug.Log("Dï¿½but du jeu");
 
         // Quand on le clique, on bouge le build, on attend 2sec, on affiche le premier pop-up et on attend x sec
         // Affichage du timer
@@ -78,7 +76,7 @@ public class GameManager : MonoBehaviour
             win = tc.End_TaperClavier();
             if (win)
             {
-                Debug.Log("Vous avez gagné le taperclavier !");
+                Debug.Log("Vous avez gagnï¿½ le taperclavier !");
             }
             else
             {
@@ -96,13 +94,13 @@ public class GameManager : MonoBehaviour
             win = fz.EndDragDropGame();
             if (win) 
             {                 
-                Debug.Log("Vous avez gagné le dragdrop !");
+                Debug.Log("Vous avez gagnï¿½ le dragdrop !");
             }
             else 
             {
                 Debug.Log("Vous avez perdu le dragdrop !");
             }
-            //Méthode start mini jeu point n click
+            //Mï¿½thode start mini jeu point n click
             Debug.Log("Fin DnD");
             MiniGames = 0;
             SetPrefab(PointClick, TaperClavier, DragDrop);
@@ -117,7 +115,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Debut de la gamestart coroutine");
         // Faire apparaitre ecran de build
         yield return new WaitForSeconds(2f);
-        // Reduire l'écran de build 
+        // Reduire l'ï¿½cran de build 
         yield return new WaitForSeconds(2f);
 
         // Start point n click minigame

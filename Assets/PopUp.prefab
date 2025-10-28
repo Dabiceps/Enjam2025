@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Let's build our game !
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -286,7 +286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3141143513849781132
 RectTransform:
   m_ObjectHideFlags: 0
@@ -438,7 +438,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popup: {fileID: 5650109181517386608}
   textMeshPro: {fileID: 6985915023743905365}
-  text: Let's build our game !
+  button: {fileID: 4252639352818822369}
+  text:
+  - Let's build our game !
+  waitingTime: 3
+  gameManager: {fileID: 0}
 --- !u!1 &7036596708854045637
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Okay
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
