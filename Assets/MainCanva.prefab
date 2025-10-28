@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thomas
       objectReference: {fileID: 0}
+    - target: {fileID: 5103451499379764109, guid: 252044f88b3ea2e4fbfcae18678fdf8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8374600914259951638, guid: 252044f88b3ea2e4fbfcae18678fdf8b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -298,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alex
       objectReference: {fileID: 0}
+    - target: {fileID: 4763833987646596677, guid: 7fbd871c7e80d744aba5b209dbfd8e0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -319,6 +327,22 @@ PrefabInstance:
     - target: {fileID: 1743504594406736633, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
       propertyPath: m_Name
       value: Luc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130399605083326026, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 628.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130399605083326026, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 202.192
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130399605083326026, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 314.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130399605083326026, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 101.1
       objectReference: {fileID: 0}
     - target: {fileID: 5646193046850111689, guid: 3bb69161e781ed84a86f3bdcbfe17b63, type: 3}
       propertyPath: m_Pivot.x
