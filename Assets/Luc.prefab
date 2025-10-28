@@ -307,11 +307,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0089451d147940f4eacc5e9f225d12bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  started: 0
+  started: 1
   videoPlayer: {fileID: 1232102006422957348}
   seconds: 0.5
   oneTime: 0
   lastInput: 
   inputTouched: 0
-  maxForWinning: 0
+  maxForWinning: 15
   gameManager: {fileID: 0}

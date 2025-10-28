@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("Variables de jeu")]
     public int MiniGameTime;
     public int FixTime;
+    public bool isActive;
     private int MiniGames = 0;
 
     // D�cla des classes
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator CountdownCoroutine()
     {
         Debug.Log("Coroutine start");
+        isActive = true;
         FixTime = MiniGameTime;
         while (FixTime > 0)
         {
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
             FixTime--;
             Debug.Log("Temps restant: " + FixTime + " secondes");
         }
+        isActive = false;
         
         if (MiniGames == 0)
         {

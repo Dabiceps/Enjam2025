@@ -20,7 +20,6 @@ public class TaperClavier : MonoBehaviour
     void Start()
     {
         videoPlayer.Pause();
-        Start_TaperClavier();
         gameManager = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>();
     }
 
@@ -89,15 +88,15 @@ public class TaperClavier : MonoBehaviour
 
     public bool End_TaperClavier()
     {
-        started = false;
-        oneTime = false;
-        if (win == true)
+        if (!gameManager.isActive)
         {
-            return true;
+            started = false;
+            oneTime = false;
+            return win;
         }
         else
         {
-            return false;
+            return win;
         }
     }
 }
