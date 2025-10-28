@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 6638273297735283889, guid: 39fa2a48523d1dc489245b7b07d9156f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7768041434022844965, guid: 39fa2a48523d1dc489245b7b07d9156f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -328,6 +332,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5728094578730964777, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040564533704803577, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6054362573227669795, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
