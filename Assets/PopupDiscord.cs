@@ -17,7 +17,7 @@ public class PopupDiscord : MonoBehaviour
         
     }
 
-    void createPopUp(string text)
+    public void createPopUp(string text)
     {
         popup.SetActive(true);
         textMeshPro.text = text;
