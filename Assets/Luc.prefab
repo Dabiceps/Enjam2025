@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   started: 1
   videoPlayer: {fileID: 1232102006422957348}
-  seconds: 0.3
+  seconds: 0.1
   oneTime: 0
   lastInput: 
   inputTouched: 0
