@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class FileDropZone : MonoBehaviour, IDropHandler
 {
+    [Header("Items draggables")] 
     [SerializeField] private List<GameObject> DraggableItems;
     [SerializeField] private List<RectTransform> ItemsPosition;
+
+    [Header("Images")]
+    [SerializeField] private List<GameObject> Images;
+    private int image;
+
+    [Header("Positions DropZone")]
+    [SerializeField] private List<RectTransform> Positions;
 
     private List<Vector2> initialPositions = new List<Vector2>();
 
     private bool win = false;
-    private bool IsDropZoneActive = false;
+    private bool IsDropZoneActive = true;
 
     private void Awake()
     {
@@ -31,10 +39,8 @@ public class FileDropZone : MonoBehaviour, IDropHandler
             if (droppedFile != null)
             {
                 bool isGood = droppedFile.CompareTag("gooditem");
-
+                Debug.Log("test");
                 Debug.Log((isGood ? "Fichier accepté: " : "Fichier refusé: ") + droppedFile.name + " de type " + droppedFile.tag);
-
-                droppedFile.GetComponent<DragDrop>().enabled = false;
                 droppedFile.GetComponent<CanvasGroup>().alpha = 1f;
 
                 win = isGood;
@@ -46,6 +52,8 @@ public class FileDropZone : MonoBehaviour, IDropHandler
     public bool EndDragDropGame()
     {
         this.gameObject.SetActive(false);
+        GameObject img = Images[image];
+        img.SetActive(false);
         foreach (var item in DraggableItems)
         {
             item.SetActive(false);
@@ -55,14 +63,23 @@ public class FileDropZone : MonoBehaviour, IDropHandler
 
     public void StartDragDropGame(int difficultyLevel)
     {
-        this.gameObject.SetActive(true);
+        
         IsDropZoneActive = true;
         win = false;
+        image = difficultyLevel - 1;
+        GameObject img = Images[image];
+        img.SetActive(true);
+        
+
+        RectTransform rectTransform = Positions[image];
+        this.transform.position = rectTransform.position;
+        this.gameObject.SetActive(true);
 
         for (int i = 0; i < DraggableItems.Count; i++)
         {
             GameObject item = DraggableItems[i];
             item.SetActive(true);
+
 
             // Réinitialiser la position à celle d'origine
             RectTransform rect = item.GetComponent<RectTransform>();
@@ -76,5 +93,6 @@ public class FileDropZone : MonoBehaviour, IDropHandler
             item.tag = (i == difficultyLevel-1) ? "gooditem" : "baditem";
             Debug.Log("Item " + item.name + " set as " + item.tag);
         }
+        
     }
 }
