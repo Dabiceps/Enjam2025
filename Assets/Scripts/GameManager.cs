@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> ImagesBelles;
     [SerializeField] private List<GameObject> ImagesMoches;
     private GameObject PointClick; // Prefab pointclick
+    private int numero = 0;
 
     [Header("Scripts")]
     [SerializeField] private FileDropZone fz; // La zone de drop
@@ -215,36 +216,37 @@ public class GameManager : MonoBehaviour
     {
         if (win)
         {
-            switch (difficulty-1)
+            switch (numero)
             {
+                case 0:
+                    ImagesBelles[0].SetActive(true);
+                    break;
                 case 1:
                     ImagesBelles[1].SetActive(true);
                     break;
                 case 2:
                     ImagesBelles[2].SetActive(true);
                     break;
-                case 3:
-                    ImagesBelles[3].SetActive(true);
-                    break;
             }
         }
         else
         {
             Debug.Log("test");
-            switch (difficulty-1)
+            switch (numero)
             {
+                case 0:
+                    ImagesMoches[0].SetActive(true);
+                    Debug.Log("test2");
+                    break;
                 case 1:
                     ImagesMoches[1].SetActive(true);
-                    Debug.Log("test2");
                     break;
                 case 2:
                     ImagesMoches[2].SetActive(true);
                     break;
-                case 3:
-                    ImagesMoches[3].SetActive(true);
-                    break;
             }
         }
+        numero++;
     }
 
     private void EffacerImage()
