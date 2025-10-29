@@ -46,7 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popup: {fileID: 9065415324407778789}
   textMeshPro: {fileID: 4388320298257037687}
-  text: Build ton jeu batard
+  button: {fileID: 0}
+  text: []
+  waitingTime: 0
+  gameManager: {fileID: 0}
 --- !u!1 &5385107482320613070
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3226866580277209056, guid: 51185e3b99cc4944c849b90b60f72a9d, type: 3}
+  m_Sprite: {fileID: -6819738923850274536, guid: 5ad0713729d71dd4ea6be8a6d9005bf9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
