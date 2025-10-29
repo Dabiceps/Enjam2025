@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: textTapingScore
       value: 
       objectReference: {fileID: 480933936}
+    - target: {fileID: 3990981165708023765, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4858721938202251523, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -592
