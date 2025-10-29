@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
             popupDiscord.createPopUp(popupNumber, false);
             popupDiscord.destroyPopUp();
             yield return new WaitForSeconds(2f);
-            tc.Start_TaperClavier();
+            tc.Start_TaperClavier(difficulty);
             StartCoroutine(CountdownCoroutine());
         }
         if (MiniGames == 1)

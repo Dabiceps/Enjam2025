@@ -255,10 +255,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5646193046850111689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 236.74838, y: 175.40749}
-  m_SizeDelta: {x: 128.7862, y: 36.785}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -269, y: -74}
+  m_SizeDelta: {x: 252.5124, y: 77.5739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1167318341596143488
 CanvasRenderer:
@@ -315,8 +315,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -446,9 +446,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   started: 1
   videoPlayer: {fileID: 1232102006422957348}
-  seconds: 0.5
+  seconds: 0.3
   oneTime: 0
   lastInput: 
   inputTouched: 0
   maxForWinning: 15
   gameManager: {fileID: 0}
+  textTapingScore: {fileID: 4747771316037601667}
