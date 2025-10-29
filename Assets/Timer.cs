@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
             int seconds = Mathf.FloorToInt(time);
             int milliseconds = Mathf.FloorToInt((time - seconds) * 100);
 
-            Debug.Log($"{seconds:00}:{milliseconds:00}");
+            //Debug.Log($"{seconds:00}:{milliseconds:00}");
             textMesh.text = $"{seconds:00}:{milliseconds:00}";
         }
         else

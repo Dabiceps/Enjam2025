@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -14,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PointClick1; // Prefab pointclick
     [SerializeField] private GameObject PointClick2; // Prefab pointclick
     [SerializeField] private GameObject PointClick3; // Prefab pointclick
+    [SerializeField] private List<GameObject> ImagesBelles;
+    [SerializeField] private List<GameObject> ImagesMoches;
     private GameObject PointClick; // Prefab pointclick
 
     [Header("Scripts")]
@@ -31,8 +35,8 @@ public class GameManager : MonoBehaviour
     public bool isActive;
     private int MiniGames = 0;
     private int difficulty = 1;
-    private int totalGames = -0;
-    
+    private int totalGames = 0;
+    private float readTime = 9f;
 
 
     // Autres
@@ -64,12 +68,18 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator CountdownCoroutine()
     {
-        totalGames++;
+        
         if (difficulty == 4)
         {
             StartCoroutine(EndGameCoroutine());
             yield break;
         }
+
+        popupDiscord.createPopUp(popupNumber, false);
+        yield return new WaitForSeconds(readTime);
+        popupDiscord.createPopUp(popupNumber, false);
+        popupDiscord.destroyPopUp();
+        yield return new WaitForSeconds(2f);
 
         Debug.Log("Coroutine start");
         isActive = true;
@@ -85,14 +95,14 @@ public class GameManager : MonoBehaviour
         if (MiniGames == 0)
         {
             win = PointClickVictory();
+            AfficherResultat();
+            yield return new WaitForSeconds(2f);
+            EffacerImage();
             buildBar.buildBar(totalGames, win);
+            totalGames++;
             Debug.Log(win.ToString());
             SetPrefab(TaperClavier, DragDrop, PointClick);
-            popupDiscord.createPopUp(popupNumber, false);
-            yield return new WaitForSeconds(4f);
-            popupDiscord.createPopUp(popupNumber, false);
-            popupDiscord.destroyPopUp();
-            yield return new WaitForSeconds(2f);
+            
             tc.Start_TaperClavier(difficulty);
             StartCoroutine(CountdownCoroutine());
         }
@@ -101,14 +111,10 @@ public class GameManager : MonoBehaviour
             // truc de fin de mini jeu mashing clavier
             win = tc.End_TaperClavier();
             buildBar.buildBar(totalGames, win);
-
+            totalGames++;
 
             SetPrefab(DragDrop, TaperClavier, PointClick);
-            popupDiscord.createPopUp(popupNumber, false);
-            yield return new WaitForSeconds(4f);
-            popupDiscord.createPopUp(popupNumber, false);
-            popupDiscord.destroyPopUp();
-            yield return new WaitForSeconds(2f);
+            
             fz.StartDragDropGame(difficulty);
             StartCoroutine(CountdownCoroutine());
         }
@@ -117,10 +123,12 @@ public class GameManager : MonoBehaviour
             //truc de fin de mini jeu drag drop
             win = fz.EndDragDropGame();
             buildBar.buildBar(totalGames, win);
+            totalGames++;
             //M�thode start mini jeu point n click
             MiniGames = 0;
             
             difficulty++;
+            readTime = 4f;
             SetPrefab(PointClick, TaperClavier, DragDrop, difficulty);
             StartCoroutine(CountdownCoroutine());
             yield break;
@@ -132,19 +140,14 @@ public class GameManager : MonoBehaviour
     public IEnumerator GameStartCoroutine()
     {
         Debug.Log("Debut de la gamestart coroutine");
-        // Faire apparaitre ecran de build
-        yield return new WaitForSeconds(2f);
-        // Reduire l'�cran de build 
-        yield return new WaitForSeconds(2f);
+        buildBar.buildBar(totalGames, win, true);
+        yield return new WaitForSeconds(5f);
+        buildBar.closeBuildFullBar();
 
         // Start point n click minigame
         TitleScreen.SetActive(false);
         SetPrefab(PointClick, TaperClavier, DragDrop, difficulty);
-        popupDiscord.createPopUp(popupNumber, false);
-        yield return new WaitForSeconds(4f);
-        popupDiscord.createPopUp(popupNumber, false);
-        popupDiscord.destroyPopUp();
-        yield return new WaitForSeconds(2f);
+        
         StartCoroutine(CountdownCoroutine());
 
     }
@@ -206,6 +209,51 @@ public class GameManager : MonoBehaviour
             default: break;
         }
         return win;
+    }
+
+    private void AfficherResultat()
+    {
+        if (win)
+        {
+            switch (difficulty-1)
+            {
+                case 1:
+                    ImagesBelles[1].SetActive(true);
+                    break;
+                case 2:
+                    ImagesBelles[2].SetActive(true);
+                    break;
+                case 3:
+                    ImagesBelles[3].SetActive(true);
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log("test");
+            switch (difficulty-1)
+            {
+                case 1:
+                    ImagesMoches[1].SetActive(true);
+                    Debug.Log("test2");
+                    break;
+                case 2:
+                    ImagesMoches[2].SetActive(true);
+                    break;
+                case 3:
+                    ImagesMoches[3].SetActive(true);
+                    break;
+            }
+        }
+    }
+
+    private void EffacerImage()
+    {
+        for (int i = 0; i < ImagesBelles.Count; i++)
+        {
+            ImagesBelles[i].SetActive(false);
+            ImagesMoches[i].SetActive(false);
+        }
     }
 
 
