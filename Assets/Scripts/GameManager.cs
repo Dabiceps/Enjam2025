@@ -83,7 +83,8 @@ public class GameManager : MonoBehaviour
         
         if (MiniGames == 0)
         {
-            // truc de fin mini jeu point n click
+            win = PointClickVictory();
+            Debug.Log(win.ToString());
             SetPrefab(TaperClavier, DragDrop, PointClick);
             popupDiscord.createPopUp(popupNumber, false);
             yield return new WaitForSeconds(4f);
@@ -197,8 +198,26 @@ public class GameManager : MonoBehaviour
                 break;
 
         }
-
-
     }
+
+    private bool PointClickVictory()
+    {
+        bool win = false;
+        switch (difficulty)
+        {
+            case 1:
+                PointAndClickController1 pc1 = PointClick1.GetComponent<PointAndClickController1>();
+                win = pc1.pointAndClickVictory; break;
+            case 2:
+                PointAndClickController2 pc2 = PointClick2.GetComponent<PointAndClickController2>();
+                win = pc2.pointAndClickVictory; break;
+            case 3:
+                PointAndClickController3 pc3 = PointClick3.GetComponent<PointAndClickController3>();
+                win = pc3.pointAndClickVictory; break;
+            default: break;
+        }
+        return win;
+    }
+
 
 }
