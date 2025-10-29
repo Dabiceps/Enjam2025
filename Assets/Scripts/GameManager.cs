@@ -8,13 +8,20 @@ public class GameManager : MonoBehaviour
     [Header("Pr�fabs des mini-jeux")]
     [SerializeField] private GameObject DragDrop; // Prefab dragdrop
     [SerializeField] private GameObject TaperClavier; // Prefab TaperClavier
-    [SerializeField] private GameObject PointClick; // Prefab pointclick
     [SerializeField] private GameObject TitleScreen; // Prefab TitleScreen
+
+    [Header("Prefabs PointClick")]
+    [SerializeField] private GameObject PointClick1; // Prefab pointclick
+    [SerializeField] private GameObject PointClick2; // Prefab pointclick
+    [SerializeField] private GameObject PointClick3; // Prefab pointclick
+    private GameObject PointClick; // Prefab pointclick
 
     [Header("Scripts")]
     [SerializeField] private FileDropZone fz; // La zone de drop
     [SerializeField] private TaperClavier tc; // Le taper clavier
     [SerializeField] private PopupDiscord popupDiscord; // Popup discord
+
+
 
     // Variables de coroutine
     [Header("Variables de jeu")]
@@ -34,6 +41,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PointClick = PointClick1;
         DragDrop.SetActive(false);
         TaperClavier.SetActive(false);
         PointClick.SetActive(false);
@@ -122,8 +130,9 @@ public class GameManager : MonoBehaviour
             }
             //M�thode start mini jeu point n click
             MiniGames = 0;
-            SetPrefab(PointClick, TaperClavier, DragDrop);
+            
             difficulty++;
+            SetPrefab(PointClick, TaperClavier, DragDrop, difficulty);
             StartCoroutine(CountdownCoroutine());
             yield break;
         }
@@ -140,7 +149,7 @@ public class GameManager : MonoBehaviour
 
         // Start point n click minigame
         TitleScreen.SetActive(false);
-        SetPrefab(PointClick, TaperClavier, DragDrop);
+        SetPrefab(PointClick, TaperClavier, DragDrop, difficulty);
         popupDiscord.createPopUp(popupNumber, false);
         yield return new WaitForSeconds(4f);
         popupDiscord.createPopUp(popupNumber, false);
@@ -158,11 +167,38 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void SetPrefab (GameObject ActivePrefab, GameObject NonActivePrefab1, GameObject NonActivePrefab2)
+    public void SetPrefab(GameObject ActivePrefab, GameObject NonActivePrefab1, GameObject NonActivePrefab2, int difficulty = 0)
     {
         ActivePrefab.SetActive(true);
         NonActivePrefab1.SetActive(false);
         NonActivePrefab2.SetActive(false);
+
+        switch (difficulty)
+        {
+            case 1:
+                PointClick1.SetActive(true);
+                PointClick2.SetActive(false);
+                PointClick3.SetActive(false);
+                break;
+            case 2:
+                PointClick1.SetActive(false);
+                PointClick2.SetActive(true);
+                PointClick3.SetActive(false);
+                break;
+            case 3:
+                PointClick1.SetActive(false);
+                PointClick2.SetActive(false);
+                PointClick3.SetActive(true);
+                break;
+            default:
+                PointClick1.SetActive(false);
+                PointClick2.SetActive(false);
+                PointClick3.SetActive(false);
+                break;
+
+        }
+
+
     }
 
 }
