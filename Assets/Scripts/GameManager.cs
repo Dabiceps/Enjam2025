@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Coroutine start");
         isActive = true;
         FixTime = MiniGameTime;
-        while (FixTime > 0)
+        while (FixTime >= 0)
         {
             yield return new WaitForSeconds(1);
             FixTime--;
