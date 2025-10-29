@@ -12,15 +12,15 @@ public class BuildBar : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        buildBar(0,true);
-        buildBar(1,true);
-        buildBar(2,true);
-        buildBar(3,false);
-        buildBar(4,false);
-        buildBar(5,false);
-        buildBar(6,false);
-        buildBar(7,true);
-        buildBar(8,true);
+        // buildBar(0,true);
+        // buildBar(1,true);
+        // buildBar(2,true);
+        // buildBar(3,false);
+        // buildBar(4,false);
+        // buildBar(5,false);
+        // buildBar(6,false);
+        // buildBar(7,true);
+        // buildBar(8,true);
     }
 
     // Update is called once per frame
@@ -51,6 +51,15 @@ public class BuildBar : MonoBehaviour
             }
         }
     }
+
+    public void closeBuildFullBar()
+    {
+        buildFullBar.SetActive(false);
+    }
     
+    public void closeBuildBar()
+    {
+        buildBarEnBasla.SetActive(false);
+    }
     
 }
