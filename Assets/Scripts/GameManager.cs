@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TaperClavier tc; // Le taper clavier
     [SerializeField] private PopupDiscord popupDiscord; // Popup discord
     [SerializeField] private BuildBar buildBar;
+    [SerializeField] private Endgame endgame;
     
 
 
@@ -157,6 +158,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator EndGameCoroutine()
     {
         Debug.Log("Fin de partie"); 
+        endgame.launchEndgame();
         yield return null;
     }
 

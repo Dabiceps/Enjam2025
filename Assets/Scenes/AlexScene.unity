@@ -256,6 +256,17 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &348286776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1831981924590202355, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+  m_PrefabInstance: {fileID: 987658235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5c8385052305b4787710573f1bd117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &987658235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,22 +275,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 993085484741853299, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2003051980845439476, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
       propertyPath: m_Name
       value: MainCanva
       objectReference: {fileID: 0}
     - target: {fileID: 2178021833988094766, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
-      propertyPath: PointClick1
-      value: 
-      objectReference: {fileID: 1598160644}
+      propertyPath: MiniGameTime
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2178021833988094766, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
-      propertyPath: PointClick3
+      propertyPath: popupDiscord
       value: 
-      objectReference: {fileID: 2055242052}
+      objectReference: {fileID: 348286776}
+    - target: {fileID: 2313968257789952954, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6819738923850274536, guid: 5ad0713729d71dd4ea6be8a6d9005bf9, type: 3}
+    - target: {fileID: 2589316080240067405, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5728094578730964777, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -360,8 +375,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6849628252217252366, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 6758953106208585225, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6819738923850274536, guid: 5ad0713729d71dd4ea6be8a6d9005bf9, type: 3}
+    - target: {fileID: 6791257356021200638, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127056995766507001, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -369,16 +392,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
---- !u!1 &1598160644 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6849628252217252366, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
-  m_PrefabInstance: {fileID: 987658235}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2055242052 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 993085484741853299, guid: 4c2bbc2a596f35844b3072c7a3eb074f, type: 3}
-  m_PrefabInstance: {fileID: 987658235}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
