@@ -22,8 +22,9 @@ public class GameManager : MonoBehaviour
     public int FixTime;
     public bool isActive;
     private int MiniGames = 0;
+    private int difficulty = 1;
 
-    // D�cla des classes
+    
 
 
     // Autres
@@ -54,6 +55,13 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator CountdownCoroutine()
     {
+
+        if (difficulty == 4)
+        {
+            StartCoroutine(EndGameCoroutine());
+            yield break;
+        }
+
         Debug.Log("Coroutine start");
         isActive = true;
         FixTime = MiniGameTime;
@@ -97,7 +105,7 @@ public class GameManager : MonoBehaviour
             popupDiscord.createPopUp(popupNumber, false);
             popupDiscord.destroyPopUp();
             yield return new WaitForSeconds(2f);
-            fz.StartDragDropGame();
+            fz.StartDragDropGame(difficulty);
             StartCoroutine(CountdownCoroutine());
         }
         if (MiniGames == 2)
@@ -115,6 +123,7 @@ public class GameManager : MonoBehaviour
             //M�thode start mini jeu point n click
             MiniGames = 0;
             SetPrefab(PointClick, TaperClavier, DragDrop);
+            difficulty++;
             StartCoroutine(CountdownCoroutine());
             yield break;
         }
@@ -140,6 +149,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(CountdownCoroutine());
 
     }
+
+    public IEnumerator EndGameCoroutine()
+    {
+        Debug.Log("Fin de partie");
+        yield return null;
+    }
+
+
 
     public void SetPrefab (GameObject ActivePrefab, GameObject NonActivePrefab1, GameObject NonActivePrefab2)
     {
