@@ -68,10 +68,6 @@ public class PointAndClickController3 : MonoBehaviour
             bouton5.enabled = false;
             line4.SetActive(true);
             bouton5.gameObject.SetActive(false);
-            line1.SetActive(false);
-            line2.SetActive(false);
-            line3.SetActive(false);
-            line4.SetActive(false);
             pointAndClickVictory = true;
         });
 

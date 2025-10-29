@@ -70,6 +70,7 @@ public class TaperClavier : MonoBehaviour
     public void Start_TaperClavier(int difficulty)
     {
         started = true;
+        inputTouched = 0;
         videoPlayer.Stop();
         videoPlayer.Pause();
         switch (difficulty)
