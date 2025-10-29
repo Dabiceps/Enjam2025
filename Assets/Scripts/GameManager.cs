@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FileDropZone fz; // La zone de drop
     [SerializeField] private TaperClavier tc; // Le taper clavier
     [SerializeField] private PopupDiscord popupDiscord; // Popup discord
+    [SerializeField] private BuildBar buildBar;
 
 
 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     public bool isActive;
     private int MiniGames = 0;
     private int difficulty = 1;
-
+    private int totalGames = -0;
     
 
 
@@ -63,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator CountdownCoroutine()
     {
-
+        totalGames++;
         if (difficulty == 4)
         {
             StartCoroutine(EndGameCoroutine());
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
         if (MiniGames == 0)
         {
             win = PointClickVictory();
+            buildBar.buildBar(totalGames, win);
             Debug.Log(win.ToString());
             SetPrefab(TaperClavier, DragDrop, PointClick);
             popupDiscord.createPopUp(popupNumber, false);
@@ -98,16 +100,9 @@ public class GameManager : MonoBehaviour
         {
             // truc de fin de mini jeu mashing clavier
             win = tc.End_TaperClavier();
-            if (win)
-            {
-                Debug.Log("Vous avez gagn� le taperclavier !");
-            }
-            else
-            {
-                Debug.Log("Vous avez perdu le taperclavier !");
-            }
+            buildBar.buildBar(totalGames, win);
 
-            
+
             SetPrefab(DragDrop, TaperClavier, PointClick);
             popupDiscord.createPopUp(popupNumber, false);
             yield return new WaitForSeconds(4f);
@@ -121,14 +116,7 @@ public class GameManager : MonoBehaviour
         {
             //truc de fin de mini jeu drag drop
             win = fz.EndDragDropGame();
-            if (win) 
-            {                 
-                Debug.Log("Vous avez gagn� le dragdrop !");
-            }
-            else 
-            {
-                Debug.Log("Vous avez perdu le dragdrop !");
-            }
+            buildBar.buildBar(totalGames, win);
             //M�thode start mini jeu point n click
             MiniGames = 0;
             
@@ -138,6 +126,7 @@ public class GameManager : MonoBehaviour
             yield break;
         }
         MiniGames++;
+        
     }
 
     public IEnumerator GameStartCoroutine()
