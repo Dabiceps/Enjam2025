@@ -15,6 +15,7 @@ public class Endgame : MonoBehaviour
     [SerializeField] private AudioSource musicEnd;
     [SerializeField] private BuildBar buildBar;
     [SerializeField] private int nbrErreur;
+    [SerializeField] private GameObject openEndGame;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +26,11 @@ public class Endgame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void launchEndgame()
+    {
+        openEndGame.SetActive(true);
     }
 
     void calculateError()
