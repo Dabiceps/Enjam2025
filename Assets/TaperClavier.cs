@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -15,6 +16,7 @@ public class TaperClavier : MonoBehaviour
     [SerializeField] private int inputTouched = 0;
     [SerializeField] private int maxForWinning = 15;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private TextMeshProUGUI textTapingScore;
     private static bool win = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,6 +50,7 @@ public class TaperClavier : MonoBehaviour
                 }
             }
 
+            textTapingScore.text = inputTouched.ToString();
             if (inputTouched >= maxForWinning)
             {
                 Debug.Log("Bravo !!!");
@@ -64,11 +67,23 @@ public class TaperClavier : MonoBehaviour
         }
     }
 
-    public void Start_TaperClavier()
+    public void Start_TaperClavier(int difficulty)
     {
         started = true;
         videoPlayer.Stop();
         videoPlayer.Pause();
+        switch (difficulty)
+        {
+            case 1:
+                maxForWinning = 15;
+                break;
+            case 2:
+                maxForWinning = 20;
+                break;
+            case 3:
+                maxForWinning = 25;
+                break;
+        }
     }
 
     

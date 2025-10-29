@@ -12,7 +12,6 @@ public class FileDropZone : MonoBehaviour, IDropHandler
 
     private bool win = false;
     private bool IsDropZoneActive = false;
-    public int difficultyLevel = 0;
 
     private void Awake()
     {
@@ -54,7 +53,7 @@ public class FileDropZone : MonoBehaviour, IDropHandler
         return win;
     }
 
-    public void StartDragDropGame()
+    public void StartDragDropGame(int difficultyLevel)
     {
         this.gameObject.SetActive(true);
         IsDropZoneActive = true;
@@ -74,10 +73,8 @@ public class FileDropZone : MonoBehaviour, IDropHandler
             item.GetComponent<CanvasGroup>().alpha = 1f;
 
             // Définir le tag selon la difficulté
-            item.tag = (i == difficultyLevel) ? "gooditem" : "baditem";
+            item.tag = (i == difficultyLevel-1) ? "gooditem" : "baditem";
             Debug.Log("Item " + item.name + " set as " + item.tag);
         }
-
-        difficultyLevel++;
     }
 }
