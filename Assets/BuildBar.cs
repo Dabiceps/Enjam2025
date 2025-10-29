@@ -55,11 +55,17 @@ public class BuildBar : MonoBehaviour
     public void closeBuildFullBar()
     {
         buildFullBar.SetActive(false);
+        buildBarEnBasla.SetActive(true);
     }
     
     public void closeBuildBar()
     {
         buildBarEnBasla.SetActive(false);
+        for (int i = 0; i < 10; i++)
+        {
+            barSucess[i].SetActive(false);
+            barEchec[i].SetActive(false);
+        }
     }
     
 }
