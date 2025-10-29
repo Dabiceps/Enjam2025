@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Debut de la gamestart coroutine");
         buildBar.buildBar(totalGames, win, true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         buildBar.closeBuildFullBar();
 
         // Start point n click minigame
