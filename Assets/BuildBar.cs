@@ -8,6 +8,7 @@ public class BuildBar : MonoBehaviour
     [SerializeField] private GameObject[] barSucess;
     [SerializeField] private GameObject[] barEchec;
     [SerializeField] private Sprite[] spritesBar;
+    [SerializeField] public bool[] erreur;
     [SerializeField] private Image barSpriteRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,6 +51,7 @@ public class BuildBar : MonoBehaviour
                 barEchec[level].SetActive(true);
             }
         }
+        erreur[level] = sucess;
     }
 
     public void closeBuildFullBar()
