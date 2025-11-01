@@ -444,29 +444,22 @@ MonoBehaviour:
   - HEY, C'EST TON MANAGER PREF ! LA GAME JAM SE TERMINE DANS 10 MINUTES ! TU DOIS
     BUILD LE JEU MAINTENANT ! (c'est toi qu'a voulu solodev je te rappelle).
   - "T'AS OUBLIE UN ASSET !! DESSINE-LE VITE, IL RESTE 9 MINUTES !! (fais simple
-    : relie les points dans l\u2019ordre)."
-  - 3..2..1..
+    : cliquer pour relier les points dans l\u2019ordre)."
   - "T'AS PENSE A IMPLEMENTER LES DERNIERES FEATURES ?? IL RESTE 8 MINUTES !! (laisse
     parler ton instinct : tape fr\xE9n\xE9tiquement sur le clavier)"
-  - 3..2..1..
   - Y'A PAS DE SONS !!! INTEGRE LES SFX NOW, IL RESTE 7 MINUTES !! (glisse les fichiers
     sur les assets)
-  - 3..2..1..
   - IL MANQUE UN AUTRE ASSET !! IL RESTE 6 MINUTES !!! (relie les points)
-  - 3..2..1..
   - MAIS... Y'A PAS DE CONTROLLER ?? VIBE CODE-NOUS CA, IL RESTE 5 MINUTES (tape
     tape tape)
-  - 3..2..1..
   - Y'A QU'UN SEUL SON DANS TON JEU !! ET IL RESTE 4 MINUTES !! (fichier -> asset)
-  - 3..2..1..
   - NON !!! T'AS OUBLIE UN DESSIN CRUCIAL !! IL RESTE 3 MINUTES !!!
-  - 3..2..1..
   - LE PERSONNAGE MEURT QUAND IL RECULE !!! IL RESTE 2 MINUTES !!!
-  - 3..2..1..
   - IL MANQUE UN SON IMPORTANT, Y'A PAS DE FEEDBACK !!! IL RESTE 1 MINUTE C'EST FOUTU
     !!!!
-  - 3..2..1..
-  waitingTime: 3
+  - 3..
+  - 2..
+  - 1..
   gameManager: {fileID: 0}
   discordNotif: {fileID: 4511215742986117968}
 --- !u!82 &4511215742986117968

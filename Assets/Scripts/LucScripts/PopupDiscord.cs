@@ -9,7 +9,6 @@ public class PopupDiscord : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textMeshPro;
     [SerializeField] private GameObject button;
     [SerializeField] private string[] text;
-    [SerializeField] private float waitingTime;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioSource discordNotif;
     
@@ -25,7 +24,7 @@ public class PopupDiscord : MonoBehaviour
         
     }
 
-    public void createPopUp(int nbrText, bool activeButton)
+    public void createPopUp(int nbrText, bool activeButton,bool compteur = false)
     {
         if (activeButton == true)
         {
@@ -38,7 +37,10 @@ public class PopupDiscord : MonoBehaviour
         discordNotif.Play();
         popup.SetActive(true);
         textMeshPro.text = text[nbrText];
-        gameManager.popupNumber++;
+        if (compteur == false)
+        {
+            gameManager.popupNumber++;
+        }
     }
 
     public void closePopup()
@@ -47,12 +49,12 @@ public class PopupDiscord : MonoBehaviour
         gameManager.GameStart();   
     }
 
-    public void destroyPopUp()
+    public void destroyPopUp(int waitingTime = 3)
     {
-        StartCoroutine(waitBeforeDestroy());
+        StartCoroutine(waitBeforeDestroy(waitingTime));
     }
 
-    IEnumerator waitBeforeDestroy()
+    IEnumerator waitBeforeDestroy(int waitingTime = 3)
     {
         yield return new WaitForSeconds(waitingTime);
         popup.SetActive(false);

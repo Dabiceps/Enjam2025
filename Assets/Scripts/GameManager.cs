@@ -82,9 +82,14 @@ public class GameManager : MonoBehaviour
 
         popupDiscord.createPopUp(popupNumber, false);
         yield return new WaitForSeconds(readTime);
-        popupDiscord.createPopUp(popupNumber, false);
+        popupDiscord.createPopUp(10, false,true);
         popupDiscord.destroyPopUp();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        popupDiscord.createPopUp(11, false,true);
+        popupDiscord.destroyPopUp();
+        yield return new WaitForSeconds(1f);
+        popupDiscord.createPopUp(12, false,true);
+        popupDiscord.destroyPopUp();
 
         Debug.Log("Coroutine start");
         isActive = true;

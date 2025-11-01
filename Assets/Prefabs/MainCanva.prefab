@@ -64,7 +64,7 @@ MonoBehaviour:
   popupDiscord: {fileID: 1831981924590202355}
   buildBar: {fileID: 6902187990887602214}
   endgame: {fileID: 1423006441673367369}
-  MiniGameTime: 4
+  MiniGameTime: 5
   FixTime: 0
   isActive: 0
   readTime: 6.5
