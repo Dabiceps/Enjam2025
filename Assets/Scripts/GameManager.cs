@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
     private int MiniGames = 0;
     private int difficulty = 1;
     private int totalGames = 0;
-    private float readTime = 9f;
+    [SerializeField] public float readTime = 9f;
+    [SerializeField] private AudioSource gameMusic;
 
 
     // Autres
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         Debug.Log("D�but du jeu");
+        gameMusic.Play();
 
         // Quand on le clique, on bouge le build, on attend 2sec, on affiche le premier pop-up et on attend x sec
         // Affichage du timer
