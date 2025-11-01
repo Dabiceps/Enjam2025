@@ -18,7 +18,9 @@ public class TaperClavier : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI textTapingScore;
     [SerializeField] private AudioSource tapingSound;
+
     private static bool win = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,7 +37,7 @@ public class TaperClavier : MonoBehaviour
         {
             if (Input.anyKeyDown && oneTime == false)
             {
-                if(Enum.TryParse(lastInput.ToUpper(),out KeyCode key))
+                if (Enum.TryParse(lastInput.ToUpper(), out KeyCode key))
                 {
                     //Debug.Log("Dernière touche : " + key);
                     if (Input.GetKeyDown(key))
@@ -54,20 +56,24 @@ public class TaperClavier : MonoBehaviour
             }
 
             textTapingScore.text = inputTouched.ToString();
-            if (inputTouched >= maxForWinning)
-            {
-                Debug.Log("Bravo !!!");
-                win = true;
+            // if (inputTouched >= maxForWinning)
+            // {
+            //     Debug.Log("Bravo !!!");
+            //     win = true;
+            //     End_TaperClavier();
+            // }
+            //
+            // if (gameManager.MiniGameTime <= 0.1f && inputTouched < maxForWinning)
+            // {
+            //     inputTouched = 0;
+            //     win = false;
+            //     End_TaperClavier();
+            // }
+            if (gameManager.MiniGameTime <= 0.1f)
+            { 
                 End_TaperClavier();
             }
 
-            if (gameManager.MiniGameTime <= 0.1f)
-            {
-                win = false;
-                End_TaperClavier();
-                inputTouched = 0;
-            }
-            
         }
     }
 
@@ -93,15 +99,15 @@ public class TaperClavier : MonoBehaviour
 
     IEnumerator waitUntilPopDisapear()
     {
-        yield return new WaitForSeconds(gameManager.readTime + 2f);
+        yield return new WaitForSeconds(gameManager.readTime + 3f);
         started = true;
         videoPlayer.Stop();
         videoPlayer.Pause();
         tapingSound.Pause();
     }
 
-    
-    
+
+
     IEnumerator WaitVideo()
     {
         oneTime = true;
@@ -121,13 +127,23 @@ public class TaperClavier : MonoBehaviour
     {
         if (!gameManager.isActive)
         {
-            started = false;
-            oneTime = false;
-            return win;
+            if (inputTouched >= maxForWinning)
+            {
+                started = false;
+                oneTime = false;
+                win = true;
+                inputTouched = 0;
+            }
+            else
+            {
+                started = false;
+                oneTime = false;
+                inputTouched = 0;
+                win = false;
+            }
         }
-        else
-        {
-            return win;
-        }
+
+        return win;
     }
+
 }

@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     private int totalGames = 0;
     [SerializeField] public float readTime = 9f;
     [SerializeField] private AudioSource gameMusic;
+    [SerializeField] private AudioSource gameObjectsSound;
+    [SerializeField] private AudioClip[] clipsObjects;
 
 
     // Autres
@@ -230,12 +232,15 @@ public class GameManager : MonoBehaviour
             {
                 case 0:
                     ImagesBelles[0].SetActive(true);
+                    gameObjectsSound.PlayOneShot(clipsObjects[0]);
                     break;
                 case 1:
                     ImagesBelles[1].SetActive(true);
+                    gameObjectsSound.PlayOneShot(clipsObjects[1]);
                     break;
                 case 2:
                     ImagesBelles[2].SetActive(true);
+                    gameObjectsSound.PlayOneShot(clipsObjects[2]);
                     break;
             }
         }
@@ -246,13 +251,16 @@ public class GameManager : MonoBehaviour
             {
                 case 0:
                     ImagesMoches[0].SetActive(true);
+                    gameObjectsSound.PlayOneShot(clipsObjects[0]);
                     Debug.Log("test2");
                     break;
                 case 1:
                     ImagesMoches[1].SetActive(true);
+                    gameObjectsSound.PlayOneShot(clipsObjects[1]);
                     break;
                 case 2:
                     ImagesMoches[2].SetActive(true);
+                    gameObjectsSound.PlayOneShot(clipsObjects[2]);
                     break;
             }
         }
