@@ -10,7 +10,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     private Transform originalParent; // Dossier d'origine
     private Vector3 originalPosition; // Position d'origine
-
+    
+    [SerializeField] private AudioSource audioSource;
 
 
     private void Awake()
@@ -48,7 +49,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnDrag(PointerEventData eventData)
     {
 
-
+        audioSource.Play();
         Vector2 localPointerPosition;
         if (canvas != null && RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, eventData.position, canvas.worldCamera, out localPointerPosition))
         {

@@ -16,6 +16,7 @@ public class Endgame : MonoBehaviour
     [SerializeField] private BuildBar buildBar;
     [SerializeField] private int nbrErreur;
     [SerializeField] private GameObject openEndGame;
+    [SerializeField] private AudioSource gameplayMusic;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -91,6 +92,7 @@ public class Endgame : MonoBehaviour
 
     public void CloseDiscordNotificationOpenBuild()
     {
+        gameplayMusic.Stop();
         ecranFin.SetActive(true);
         calculateError();
         popup.SetActive(false);

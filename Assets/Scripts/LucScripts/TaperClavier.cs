@@ -17,11 +17,14 @@ public class TaperClavier : MonoBehaviour
     [SerializeField] private int maxForWinning = 15;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI textTapingScore;
+    [SerializeField] private AudioSource tapingSound;
     private static bool win = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         videoPlayer.Pause();
+        tapingSound.Play();
+        tapingSound.Pause();
         gameManager = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>();
     }
 
@@ -70,6 +73,7 @@ public class TaperClavier : MonoBehaviour
 
     public void Start_TaperClavier(int difficulty)
     {
+        tapingSound.Pause();
         inputTouched = 0;
         StopAllCoroutines();
         StartCoroutine(waitUntilPopDisapear());
@@ -79,10 +83,10 @@ public class TaperClavier : MonoBehaviour
                 maxForWinning = 15;
                 break;
             case 2:
-                maxForWinning = 20;
+                maxForWinning = 25;
                 break;
             case 3:
-                maxForWinning = 25;
+                maxForWinning = 30;
                 break;
         }
     }
@@ -93,6 +97,7 @@ public class TaperClavier : MonoBehaviour
         started = true;
         videoPlayer.Stop();
         videoPlayer.Pause();
+        tapingSound.Pause();
     }
 
     
@@ -103,9 +108,11 @@ public class TaperClavier : MonoBehaviour
         lastInput = Input.inputString;
         inputTouched++;
         //Debug.Log("Taper Clavier : " + Input.inputString);
+        tapingSound.UnPause();
         videoPlayer.Play();
         yield return new WaitForSeconds(seconds);
         videoPlayer.Pause();
+        tapingSound.Pause();
         oneTime = false;
         Debug.Log("End Wait");
     }
