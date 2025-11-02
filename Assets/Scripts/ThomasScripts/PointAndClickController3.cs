@@ -52,6 +52,7 @@ public class PointAndClickController3 : MonoBehaviour
             bouton3.enabled = true;
             bouton2.enabled = false;
             line1.SetActive(true);
+            StopAllCoroutines();
             StartCoroutine(waitForDraw());
             bouton2.gameObject.SetActive(false);
         });
@@ -60,6 +61,7 @@ public class PointAndClickController3 : MonoBehaviour
             bouton4.enabled = true;
             bouton3.enabled = false;
             line2.SetActive(true);
+            StopAllCoroutines();
             StartCoroutine(waitForDraw());
             bouton3.gameObject.SetActive(false);
         });
@@ -68,6 +70,7 @@ public class PointAndClickController3 : MonoBehaviour
             bouton5.enabled = true;
             bouton4.enabled = false;
             line3.SetActive(true);
+            StopAllCoroutines();
             StartCoroutine(waitForDraw());
             bouton4.gameObject.SetActive(false);
         });
@@ -75,6 +78,7 @@ public class PointAndClickController3 : MonoBehaviour
         {
             bouton5.enabled = false;
             line4.SetActive(true);
+            StopAllCoroutines();
             StartCoroutine(waitForDraw());
             bouton5.gameObject.SetActive(false);
             pointAndClickVictory = true;

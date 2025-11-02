@@ -103,6 +103,7 @@ public class TaperClavier : MonoBehaviour
         started = true;
         videoPlayer.Stop();
         videoPlayer.Pause();
+        tapingSound.Play();
         tapingSound.Pause();
     }
 
@@ -111,10 +112,10 @@ public class TaperClavier : MonoBehaviour
     IEnumerator WaitVideo()
     {
         oneTime = true;
+        tapingSound.UnPause();
         lastInput = Input.inputString;
         inputTouched++;
         //Debug.Log("Taper Clavier : " + Input.inputString);
-        tapingSound.UnPause();
         videoPlayer.Play();
         yield return new WaitForSeconds(seconds);
         videoPlayer.Pause();

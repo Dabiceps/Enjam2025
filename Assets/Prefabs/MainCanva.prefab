@@ -1114,6 +1114,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.060302734
       objectReference: {fileID: 0}
+    - target: {fileID: 5474731422998363455, guid: b59b0d43e015e554aa6558764626eb25, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.42382812
+      objectReference: {fileID: 0}
     - target: {fileID: 7203580235123568442, guid: b59b0d43e015e554aa6558764626eb25, type: 3}
       propertyPath: m_Name
       value: TitleScreen
