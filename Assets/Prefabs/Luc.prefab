@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4906190769490069013}
   - component: {fileID: 1232102006422957348}
+  - component: {fileID: 6494097942304983332}
   m_Layer: 5
   m_Name: Video Player
   m_TagString: Untagged
@@ -133,7 +134,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 5
   m_AudioOutputMode: 2
@@ -151,6 +152,19 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &6494097942304983332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043311934999066688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2467f6e4d523d0f44aaa0d0ede360d7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoFileName: CodingVideo.mp4
 --- !u!1 &5552357132317322030
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 5ad0713729d71dd4ea6be8a6d9005bf9, type: 3}
+  m_Texture: {fileID: 2800000, guid: eccc5b69f5d701e479345b41da37164f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
